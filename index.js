@@ -59,7 +59,9 @@ function addEmployee(){
     const uniqueInfo= response.uniqueInfo
         if ( type === "Engineer") {
             newEmployee = new Engineer(name,id,email,uniqueInfo);
-            engineerHTML = `   <div class="card-body">
+            engineerHTML = ` 
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
             <h5 class="card-title">${name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
         <ul class="list-group list-group-flush">
@@ -67,6 +69,7 @@ function addEmployee(){
           <li class="list-group-item">Id: ${id}</li>
           <li class="list-group-item"><a href="https://github.com/${uniqueInfo}">GitHub: ${uniqueInfo}</a></li>
         </ul>
+      </div>
       </div>`
       fs.appendFile("profile.html",engineerHTML,(err)=>
       err ? console.error(err) : console.log("your engineer has been appended"));
@@ -74,7 +77,9 @@ function addEmployee(){
         }
         else if ( type === "Intern") {
             newEmployee = new Intern(name,id,email,uniqueInfo)
-            internHTML = `   <div class="card-body">
+            internHTML = `   
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
             <h5 class="card-title">${name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
         <ul class="list-group list-group-flush">
@@ -82,6 +87,7 @@ function addEmployee(){
           <li class="list-group-item">Id: ${id}</li>
           <li class="list-group-item">school${uniqueInfo}></a></li>
         </ul>
+      </div>
       </div>`
       fs.appendFile("profile.html",internHTML,(err)=>
       err ? console.error(err) : console.log("your intern has been appended"));
@@ -113,8 +119,7 @@ if(response.addMoreEmployees===true){
     addEmployee()
 }
 else{
-    endHTML= `    <div>
-    
+    endHTML= `
     </body>
     </html>`
     fs.appendFile("profile.html",endHTML,(err)=>
@@ -164,12 +169,15 @@ function getManager() {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Employee Profiles</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         </head>
         <body>
             <div class="container">
                 <div class="text-center page-header">
                   <h1>Team Profiles</h1>      
                 </div>
+                <div class="card-columns">
                 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">${name}</h5>
@@ -179,7 +187,8 @@ function getManager() {
       <li class="list-group-item">Id: ${id}</li>
       <li class="list-group-item"><a href="tel:${officeNumber}">Office Number:${officeNumber}</a></li>
     </ul>
-  </div>`
+  </div>
+  </div>   `
   fs.writeFile('profile.html',startHtml, (err)=>{
   err ? console.error(err) : console.log("Your html has started");
   })
