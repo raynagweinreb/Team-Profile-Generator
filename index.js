@@ -7,7 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const employees=[];
 let newEmployee;
-//questions
+//questions for employee
 function addEmployee(){
     inquirer
     .prompt([
@@ -89,14 +89,7 @@ function addEmployee(){
         }
         employees.push(newEmployee);
         askAdd()
-      //  console.log(employees)
-     //   .then(function() {
-        // if (addMoreEmployees===true){
-        //     addEmployee();
-        // }
-        //else {
-           // endhtml= 
-       // }
+
     }
 
 
@@ -104,7 +97,7 @@ function addEmployee(){
     )}
 )}
 
-
+// function to add employee or finish html
 function askAdd(){
     inquirer
     .prompt([
@@ -130,7 +123,7 @@ else{
 
 })
 }
-
+//starting function to add manager 
 function getManager() {
     type = "Manager"
     inquirer
@@ -155,12 +148,7 @@ function getManager() {
         message: "Please enter their phone number",
         name: "phone"
     },
-    // {
-    //     type:"confirm",
-    //     message:"Would you like to add more employees?",
-    //     name:"addMore"
 
-    // }
     ])
     .then(function(response,){
         const name =response.name
@@ -196,11 +184,7 @@ function getManager() {
   err ? console.error(err) : console.log("Your html has started");
   })
   askAdd()
-  //.then(function(){
-    //if(addMore===true){
-        //addEmployee()
-  //  }
-//})
+
 
 })
 }
