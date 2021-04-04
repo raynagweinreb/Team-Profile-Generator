@@ -49,7 +49,7 @@ function addEmployee(){
     .prompt([
         {
             type: "input",
-            message: `Please enter their${uniqueInfo}`,
+            message: `Please enter their ${uniqueInfo}`,
             name: "uniqueInfo"
         },
 
@@ -81,11 +81,11 @@ function addEmployee(){
             <div class="card" style="width: 18rem;">
             <div class="card-body">
             <h5 class="card-title">${name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><a href="mailto:${email}" >Email: ${email}</a></li>
           <li class="list-group-item">Id: ${id}</li>
-          <li class="list-group-item">school${uniqueInfo}></a></li>
+          <li class="list-group-item">school: ${uniqueInfo}</a></li>
         </ul>
       </div>
       </div>`
